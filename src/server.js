@@ -4,6 +4,9 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5008;
 
+const mentorRoutes = require('./mentor/mentorRoute');
+app.use('/api/v1/mentors', mentorRoutes );
+
 /*
 CORS (Cross-Origin Resource Sharing) is a browser security feature that restricts
 cross-origin HTTP requests with other servers and specifies which domains access your resources.
