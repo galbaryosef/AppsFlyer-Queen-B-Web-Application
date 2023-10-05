@@ -1,3 +1,4 @@
+// Import the database connection pool
 const pool = require('../db');
 const mentorQuery = require('./mentorQuery')
 
