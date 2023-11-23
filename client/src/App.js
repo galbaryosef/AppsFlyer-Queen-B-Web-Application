@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Register } from "./Register/Register";
+import { Register } from "./pages/Register/Register";
 const port = process.env.PORT || 5001;
 
 function App() {

@@ -1,10 +1,10 @@
-const { Router } = require("express");
-const mentorController = require('./mentorController')
+const { Router } = require('express');
+const controller = require('./mentorController');
 
 const router = Router();
 
-router.get("/", mentorController.getMentors);
-router.post("/",mentorController.addMentor);
-router.get("/:id", mentorController.getMentorById);
+router.get('/', controller.getMentor);
+router.get('/:id', controller.getMentorById);
+router.post('/', controller.addMentor); 
 
 module.exports = router;
