@@ -1,22 +1,23 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Register } from "./pages/Register/Register";
-const port = process.env.PORT || 5001;
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/NavBar/NavBar';
+import Register from './pages/Register/Register';
+import Delete from './pages/Delete/delete';
+import MentorList from './pages/mentors/mentors';
+import Footer from './components/Footer/footer'; 
 
-function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    axios.get(`http://localhost:${port}/api/helloworld`)
-      .then(response => setMessage(response.data))
-      .catch(error => console.error(`There was an error retrieving the message: ${error}`))
-  }, [])
-
+const App = () => {
   return (
-    <div className="App">
-      <Register />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Register />} />
+        <Route path="/delete" element={<Delete />} />
+        <Route path="/MentorList" element={<MentorList />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;

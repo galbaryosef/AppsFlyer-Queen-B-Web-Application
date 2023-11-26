@@ -1,11 +1,11 @@
-// Footer.jsx
+
 import React from 'react';
 import QueenBImage from '../../images/QueenB-.png';
 import './footer.css';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer-container">
       <img src={QueenBImage} alt="Footer Image" className="footer-image" />
     </footer>
   );
