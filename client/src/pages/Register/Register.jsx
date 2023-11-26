@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import userService from '../../Services/mentorServices';
+import userService from '../../Services/api';
 import './Register.css';
 
 const Register = () => {

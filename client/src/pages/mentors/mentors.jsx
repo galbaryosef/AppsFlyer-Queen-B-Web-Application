@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import mentorService from '../../Services/mentorServices';
+import mentorService from '../../Services/api';
 
 const MentorList = () => {
   const [mentors, setMentors] = useState([]);
