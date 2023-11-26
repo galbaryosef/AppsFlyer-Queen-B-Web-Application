@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import mentorService from '../../Services/api';
+import SearchIcon from '../../components/SearchIcon/SearchIcon';
+import MentorCard from '../../components/MentorCard/MentorCard';
 
 const MentorList = () => {
   const [mentors, setMentors] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     mentorService.getMentors()
@@ -14,19 +17,26 @@ const MentorList = () => {
       });
   }, []);
 
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    const filteredMentors = mentors.filter(mentor =>
+      mentor.firstname.toLowerCase().includes(term.toLowerCase()) ||
+      mentor.lastname.toLowerCase().includes(term.toLowerCase()) ||
+      mentor.skills.toLowerCase().includes(term.toLowerCase())
+    );
+
+    setMentors(filteredMentors);
+  };
+
   return (
     <div>
-      <h2>Mentor List</h2>
-      <ul>
+      <h1></h1>
+      <SearchIcon onSearch={handleSearch} />
+      <div className="mentor-list-container">
         {mentors.map(mentor => (
-          <li key={mentor.id}>
-            <strong>{mentor.firstname} {mentor.lastname}</strong> - {mentor.skills}<br />
-            Phone: {mentor.phone}<br />
-            Biography: {mentor.biography}<br />
-            LinkedIn: <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer">{mentor.linkedin}</a>
-          </li>
+          <MentorCard key={mentor.id} mentor={mentor} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

@@ -52,7 +52,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #4b494b; /* Lighter shade on hover */
+  background-color: #4b494b;
 }
 
 .photo-upload {
