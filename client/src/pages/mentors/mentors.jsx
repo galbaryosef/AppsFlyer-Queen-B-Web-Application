@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import mentorService from '../../Services/api';
 import SearchIcon from '../../components/SearchIcon/SearchIcon';
 import MentorCard from '../../components/MentorCard/MentorCard';
+import './mentors.css';
 
 const MentorList = () => {
   const [mentors, setMentors] = useState([]);

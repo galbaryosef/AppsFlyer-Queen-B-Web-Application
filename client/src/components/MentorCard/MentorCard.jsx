@@ -9,7 +9,15 @@ const MentorCard = ({ mentor }) => {
       </div>
       <div className="text-container">
         <strong>{mentor.firstname} {mentor.lastname}</strong><br />
-        <span style={{ fontWeight:'initial' }}>{mentor.skills}</span><br />
+        {mentor.skills && Array.isArray(mentor.skills) && (
+          <div className="skills-container">
+            {mentor.skills.map((skill, index) => (
+              <div key={index} className="skill-item">
+                {skill}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

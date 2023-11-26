@@ -33,4 +33,18 @@
   .text-container {
     margin-top: 10px;
   }
+
+  .skills-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap; 
+  }
   
+  .skill-item {
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+  }
