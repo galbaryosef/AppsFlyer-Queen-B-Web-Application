@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import mentorService from '../../Services/api';
 import MentorCard from '../../components/MentorCard/MentorCard';
 import SearchIcon from '../../components/SearchIcon/SearchIcon';
@@ -7,6 +8,8 @@ import './mentors.css';
 const MentorList = () => {
   const [mentors, setMentors] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  //// Use useNavigate hook for programmatic navigation
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     // Load all mentors by default
@@ -38,13 +41,20 @@ const MentorList = () => {
     }
   };
 
+  // Function to navigate to the mentor info page
+  const goToMentorInfo = (mentorId) => {
+    navigate(`/mentorinfo/${mentorId}`);
+  };
+
   return (
     <div>
       <h1></h1>
       <SearchIcon onSearch={handleSearch} />
       <div className="mentor-list-container">
-        {mentors.map(mentor => (
-          <MentorCard key={mentor.id} mentor={mentor} />
+      {mentors.map((mentor) => (
+          <Link to={`/mentorinfo/${mentor.id}`} key={mentor.id} onClick={() => goToMentorInfo(mentor.id)}>
+            <MentorCard mentor={mentor} />
+          </Link>
         ))}
       </div>
     </div>
