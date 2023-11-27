@@ -4,7 +4,8 @@ import Navbar from './components/NavBar/NavBar';
 import Register from './pages/Register/Register';
 import Delete from './pages/Delete/delete';
 import MentorList from './pages/mentors/mentors';
-import Footer from './components/Footer/footer'; 
+import Footer from './components/Footer/footer';
+import MentorInfo from './pages/mentorInfo/mentorInfo';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/" element={<Register />} />
         <Route path="/delete" element={<Delete />} />
         <Route path="/MentorList" element={<MentorList />} />
+        <Route path="/MentorInfo/2" element={<MentorInfo />} />
       </Routes>
       <Footer />
     </Router>
