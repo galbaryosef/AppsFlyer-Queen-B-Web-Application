@@ -2,12 +2,22 @@
 // which is a Node.js library for working with PostgreSQL databases
 const Pool = require("pg").Pool;
 
+//gal
+// const pool = new Pool({
+//     user: "postgres",
+//     host: "localhost",
+//     database: "mentors",
+//     password: "12345",
+//     //port
+// });
+
+//Maya
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "mentors",
-    password: "12345",
-    //port
+  user: "postgres",
+  host: "localhost",
+  database: "mentors",
+  password: "mysecretpassword",
+  port: 5432,
 });
 
 module.exports = pool;

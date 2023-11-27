@@ -9,6 +9,16 @@ const deleteMentorById = `
   DELETE FROM mentors
   WHERE id = $1
   RETURNING *;`;
+
+  const getMentorsBySkill = (skillsArray) => {
+    const conditions = skillsArray.map(skill => `m.skills @> ARRAY['${skill}']::text[]`);
+    const conditionString = conditions.join(' OR ');
+    return `
+      SELECT m.*, m.skills AS skills
+      FROM mentors m
+      WHERE ${conditionString}
+    `;
+  };
 //const getMentorByEmail = "SELECT * FROM mentors WHERE email = $1 AND password = $2";
 //const getUserByEmail = 'SELECT * FROM users WHERE email = $1';
 
@@ -18,6 +28,7 @@ module.exports = {
   addMentor,
   checkEmailExistence,
   deleteMentorById,
+  getMentorsBySkill,
   //getMentorByEmail,
   //getUserByEmail,
 };

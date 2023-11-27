@@ -100,11 +100,28 @@ const addMentor = (req, res) => {
 };
 
 
+const getMentorsBySkill = (req, res) => {
+  const { skills } = req.params;
+  const skillsArray = skills.split(',');
+
+  const querySkills = query.getMentorsBySkill(skillsArray);
+
+  pool.query(querySkills, (error, results) => {
+    if (error) {
+      console.error("Error fetching mentors by skill:", error);
+      res.status(500).json({ error: "Internal server error", details: error.message });
+    } else {
+      res.status(200).json(results.rows);
+    }
+  });
+};
+
 
 module.exports = {
   getMentor,
   getMentorById,
   addMentor,
   deleteMentorById,
+  getMentorsBySkill,
 };
 

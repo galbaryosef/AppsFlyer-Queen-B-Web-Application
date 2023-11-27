@@ -40,6 +40,17 @@ const mentorService = {
       throw error.response.data;
     }
   },
+  
+  searchMentorsBySkill: async (skills) => {
+    try {
+      const response = await axios.get(`${API_URL}/search/${skills}`);
+      return response.data;
+    } catch (error) {
+      throw error.response.data;
+    }
+  },
+
 };
+
 
 export default mentorService;

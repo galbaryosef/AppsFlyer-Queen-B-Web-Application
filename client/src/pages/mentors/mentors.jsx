@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import mentorService from '../../Services/api';
-import SearchIcon from '../../components/SearchIcon/SearchIcon';
 import MentorCard from '../../components/MentorCard/MentorCard';
+import SearchIcon from '../../components/SearchIcon/SearchIcon';
 import './mentors.css';
 
 const MentorList = () => {
@@ -9,24 +9,33 @@ const MentorList = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    mentorService.getMentors()
-      .then(mentorsData => {
-        setMentors(mentorsData);
-      })
-      .catch(error => {
-        console.error('Error fetching mentors:', error);
-      });
+    // Load all mentors by default
+    loadAllMentors();
   }, []);
 
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-    const filteredMentors = mentors.filter(mentor =>
-      mentor.firstname.toLowerCase().includes(term.toLowerCase()) ||
-      mentor.lastname.toLowerCase().includes(term.toLowerCase()) ||
-      mentor.skills.toLowerCase().includes(term.toLowerCase())
-    );
+  const loadAllMentors = async () => {
+    try {
+      const allMentors = await mentorService.getMentors();
+      setMentors(allMentors);
+    } catch (error) {
+      console.error('Error fetching mentors:', error);
+    }
+  };
 
-    setMentors(filteredMentors);
+  const handleSearch = async (term) => {
+    try {
+      setSearchTerm(term);
+      // Load all mentors if search term is empty
+      if (term === '') {
+        loadAllMentors();
+      } else {
+        //Otherwise, search mentors by skill
+        const filteredMentors = await mentorService.searchMentorsBySkill(term);
+        setMentors(filteredMentors);
+      }
+    } catch (error) {
+      console.error('Error searching mentors:', error);
+    }
   };
 
   return (
