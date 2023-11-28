@@ -1,34 +1,44 @@
-// MentorInfoPage.jsx
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import MentorInfoCard from '../../components/MentorInfoCard/MentorInfoCard';
-import './mentorInfo.css'; // Add your styles
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import mentorService from '../../Services/api';
+import './MentorInfo.css'; // Make sure to replace with the appropriate CSS file if needed
 
-const MentorInfoPage = ({ match }) => {
-    const [mentor, setMentor] = useState(null);
+const MentorInfo = () => {
+    const { mentorId } = useParams();
+    const [mentorInfo, setMentorInfo] = useState(null);
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
-        const fetchMentor = async () => {
+        const fetchMentorInfo = async () => {
             try {
-                const response = await axios.get(`/api/mentors/${match.params.id}`);
-                setMentor(response.data);
+                const mentorData = await mentorService.getMentorById(mentorId);
+                setMentorInfo(mentorData);
+                setMessage('Mentor information retrieved successfully.');
             } catch (error) {
-                console.error('Error fetching mentor:', error);
+                setMessage(`Error retrieving mentor information: ${error}`);
             }
         };
 
-        fetchMentor();
-    }, [match.params.id]);
-
-    if (!mentor) {
-        return <div>Loading...</div>;
-    }
+        if (mentorId) {
+            fetchMentorInfo();
+        }
+    }, [mentorId]);
 
     return (
-        <div className="mentor-info-page-container">
-            <MentorInfoCard mentor={mentor} />
+        <div className="auth-form-container">
+            <h2>🌸 Mentor Information 🌸</h2>
+            {mentorInfo ? (
+                <div className="mentor-info">
+                    <h3>Mentor Details:</h3>
+                    <p>Mentor ID: {mentorInfo.id}</p>
+                    <p>Name: {mentorInfo.firstname}</p>
+                    {/* Add other mentor information fields as needed */}
+                </div>
+            ) : (
+                <p className="registration-message">{message}</p>
+            )}
         </div>
     );
 };
 
-export default MentorInfoPage;
+export default MentorInfo;

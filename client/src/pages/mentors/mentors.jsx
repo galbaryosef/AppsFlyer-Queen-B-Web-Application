@@ -9,7 +9,7 @@ const MentorList = () => {
   const [mentors, setMentors] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   //// Use useNavigate hook for programmatic navigation
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Load all mentors by default
@@ -41,18 +41,14 @@ const MentorList = () => {
     }
   };
 
-  // Function to navigate to the mentor info page
-  const goToMentorInfo = (mentorId) => {
-    navigate(`/mentorinfo/${mentorId}`);
-  };
 
   return (
     <div>
       <h1></h1>
       <SearchIcon onSearch={handleSearch} />
       <div className="mentor-list-container">
-      {mentors.map((mentor) => (
-          <Link to={`/mentorinfo/${mentor.id}`} key={mentor.id} onClick={() => goToMentorInfo(mentor.id)}>
+        {mentors.map((mentor) => (
+          <Link to={`/mentorinfo/${mentor.id}`} key={mentor.id}>
             <MentorCard mentor={mentor} />
           </Link>
         ))}
