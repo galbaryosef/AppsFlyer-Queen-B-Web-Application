@@ -1,4 +1,5 @@
 import React from 'react';
+import HorizontalOptionsIcon from '../../components/ContactIcons/ContactIcons'; 
 
 const WelcomePage = () => {
   return (
@@ -13,9 +14,9 @@ const WelcomePage = () => {
       }}
     >
       <h1 style={{ fontSize: '3rem', color: '#333', marginBottom: '20px' }}>
-      💜🌟🌸 Welcome to QueenB! 🌸🌟💜
+        💜🌟🌸 Welcome to QueenB! 🌸🌟💜
       </h1>
-      <h1 style={{ fontSize: '2rem', color: '#333', marginBottom: '20px' , lineHeight: '-10px'}}>
+      <h1 style={{ fontSize: '2rem', color: '#333', marginBottom: '20px', lineHeight: '-10px' }}>
         where women lead in tech.
       </h1>
 
@@ -27,7 +28,11 @@ const WelcomePage = () => {
           maxWidth: '600px',
         }}
       >
-    Join us to discover the creative side of programming. As Frida Kahlo said, "Feet, what do I need you for when I have wings to fly?"</p>
+        Join us to discover the creative side of programming. As Frida Kahlo said, "Feet, what do I need you for when I have wings to fly?"
+      </p>
+
+      {/* Add the HorizontalOptionsIcon component here */}
+      <HorizontalOptionsIcon />
     </div>
   );
 };
