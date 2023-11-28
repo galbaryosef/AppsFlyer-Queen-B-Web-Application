@@ -6,7 +6,7 @@ import { FaPhone } from 'react-icons/fa6';
 const HorizontalOptionsIcon = () => {
   const iconStyle = {
     cursor: 'pointer',
-    backgroundColor: 'black',
+    backgroundColor:  'black',
     color: 'white',
     padding: '8px',
     borderRadius: '8px',
