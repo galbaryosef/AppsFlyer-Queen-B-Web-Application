@@ -17,7 +17,7 @@ const DeleteMentor = () => {
 
   return (
     <div className="auth-form-container">
-      <h2>Delete Account</h2>
+      <h2>🌸 Delete Account 🌸</h2>
       <p>
         Enter your Mentor ID below to delete your account. Are you sure you want to leave our mentor community?
       </p>

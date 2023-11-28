@@ -53,7 +53,7 @@ const Register = () => {
   return (
     <div>
       <div className="auth-form-container">
-        <h2>Register</h2>
+        <h2>🌸 Register 🌸</h2>
         <form className="register-form" onSubmit={handleSubmit}>
           <label htmlFor="firstname">First Name:</label>
           <input
@@ -132,7 +132,7 @@ const Register = () => {
             onChange={handlePhotoChange}
           />
 
-          <button type="submit">Join Us and Be the Change!</button>
+          <button type="submit">Join Us and Be the Change!🌸</button>
           {registrationMessage && (
             <p className="registration-message">{registrationMessage}</p>) }
         </form>
