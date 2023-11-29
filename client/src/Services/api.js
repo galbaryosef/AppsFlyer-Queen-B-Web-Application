@@ -58,7 +58,7 @@ const mentorService = {
           'Content-Type': 'application/json',
         },
       });
-      return response.data;
+      return response.data[0];
     } catch (error) {
       throw error.response.data;
     }

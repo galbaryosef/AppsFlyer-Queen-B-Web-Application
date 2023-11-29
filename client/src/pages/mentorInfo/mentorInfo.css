@@ -4,3 +4,16 @@
     align-items: center;
     height: 100vh;
 }
+
+.name-container {
+    display: flex;
+    align-items: center;
+}
+
+.name-text {
+    margin-right: 100px;
+}
+
+.linkedin-icon-container {
+    margin-left: 100px;
+}

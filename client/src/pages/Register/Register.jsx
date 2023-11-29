@@ -39,7 +39,8 @@ const Register = () => {
           <p>Keep this ID safe; you might need it in the future.</p>
           <p>Meanwhile, go ahead and check your name in the mentor list.</p>
         </>
-      );    } catch (error) {
+      );
+    } catch (error) {
       console.error('Error registering user:', error.message);
       setRegistrationMessage(`Error: The Email Already in use`);
     }
@@ -134,7 +135,7 @@ const Register = () => {
 
           <button type="submit">Join Us and Be the Change!🌸</button>
           {registrationMessage && (
-            <p className="registration-message">{registrationMessage}</p>) }
+            <p className="registration-message">{registrationMessage}</p>)}
         </form>
       </div>
     </div>

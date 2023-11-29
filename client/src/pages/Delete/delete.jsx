@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import mentorService from '../../Services/api'; 
+import mentorService from '../../Services/api';
 import './delete.css';
 
 const DeleteMentor = () => {

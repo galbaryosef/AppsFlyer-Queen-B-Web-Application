@@ -3,32 +3,32 @@ import { ImWhatsapp } from 'react-icons/im';
 import { MdOutlineMailOutline, MdOutlineMessage } from 'react-icons/md';
 import { FaPhone } from 'react-icons/fa6';
 
-const HorizontalOptionsIcon = () => {
+const HorizontalOptionsIcon = ({ mentorPhone, mentorEmail }) => {
   const iconStyle = {
     cursor: 'pointer',
-    backgroundColor:  'black',
+    backgroundColor: 'black',
     color: 'white',
     padding: '8px',
     borderRadius: '8px',
   };
 
   const handleWhatsappClick = () => {
-    // Handle WhatsApp click logic
     console.log('WhatsApp clicked!');
+    window.open(`https://web.whatsapp.com/send?phone=${mentorPhone}`, '_blank');
   };
 
   const handleMailClick = () => {
-    // Handle Mail click logic
     console.log('Mail clicked!');
+    window.location.href = `mailto:${mentorEmail}?subject=Hello&body=`;
+
   };
 
   const handlePhoneClick = () => {
-    // Handle Phone click logic
     console.log('Phone clicked!');
+    alert(`Call ${mentorPhone}`);
   };
 
   const handleMessageClick = () => {
-    // Handle Message click logic
     console.log('Message clicked!');
   };
 
