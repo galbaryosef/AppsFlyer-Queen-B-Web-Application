@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import mentorService from '../../Services/api';
-import './MentorInfo.css';
 import HorizontalOptionsIcon from '../../components/ContactIcons/ContactIcons';
 import BlueLinkedinIcon from '../../components/LinkedInIcon/LinkedInIcon';
+import './mentorInfo.css';
 
 const MentorInfo = () => {
     const { mentorId } = useParams();

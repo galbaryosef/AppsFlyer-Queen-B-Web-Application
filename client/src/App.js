@@ -4,7 +4,7 @@ import Footer from "./components/Footer/footer";
 import Navbar from "./components/NavBar/NavBar";
 import Delete from "./pages/Delete/delete";
 import Register from "./pages/Register/Register";
-import MentorInfo from "./pages/MentorInfo/MentorInfo";
+import MentorInfo from "./pages/mentorInfo/mentorInfo";
 import MentorList from "./pages/mentors/mentors";
 import WelcomePage from "./pages/Welcome/welcome";
 

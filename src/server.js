@@ -7,10 +7,17 @@ const port = process.env.PORT || 5001;
 
 // Use cors middleware
 app.use(cors());
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "path/to/upload/directory");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, "photo.png");
+//   },
+// });
+// const upload = multer({ storage: storage });
 
-//const upload = multer({ storage: storage });
-
-// app.post("/api/v1/mentors/register", upload.single("photo"), controller.addMentor);
+// // app.post("/api/v1/mentors/register", upload.single("photo"), controller.addMentor);
 
 app.use(express.json());
 // enables the server to serve the client app without running it
@@ -27,6 +34,8 @@ app.get("/api/helloworld", (req, res) => {
 //   // res.send('Anything else');
 //   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 // });
+
+//p.post("api/v1/mentors/photo")
 
 app.use("/api/v1/mentors", mentorRoutes);
 
