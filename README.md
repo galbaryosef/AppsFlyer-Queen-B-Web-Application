@@ -25,27 +25,25 @@ Welcome to my web application project! This server-client application is designe
 Clone the repository to your local computer:
 ```bash
 git clone https://github.com/galbaryosef/AppsFlyer-Queen-B-Web-Application.git
-  cd AppsFlyer-Queen-B-Web-Application
+cd AppsFlyer-Queen-B-Web-Application
 ```
 
 To launch the server side of the project, navigate to the 'src' directory and execute the following commands:
 ```bash
-  server side
-  1) open a terminal and cd to src
+  1. open a terminal and cd to src:
   cd src
-  2) add dependencies:
+  2. add dependencies:
   npm install
-  3) Run the server - first mode - start
+  3. Run the server:
   node server.js
 ```
 To launch the client side of the project, navigate to the 'client' directory and execute the following commands:
 ```bash
-  client side
-  1) open a terminal and cd to the client
+  1. open a terminal and cd to the client:
   cd client
-  2) add dependencies:
+  2. add dependencies:
   npm install
-  3) Start the client-side application:
+  3. Start the client-side application:
   npm start
 ```
 ## Database Setup
@@ -74,5 +72,5 @@ Now, you're all set to run the application with your customized database configu
 Feel free to adjust the instructions or code snippets based on your preferences or specific details related to your project.
 
 ## Contact me
-  Email:galb9219@gmail.com
+  Email: galb9219@gmail.com
 
