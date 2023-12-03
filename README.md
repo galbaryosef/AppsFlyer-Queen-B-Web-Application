@@ -1,98 +1,81 @@
-# Queen-B-Bootcamp-Example
-An example app for the queenB Initiative - Boilerplate
+# AppsFlyer & QueenB Web Application
 
-### In order to create a project from this example, please follow the instructions below.
+Welcome to my web application project! The application is designed to efficiently manage mentors in the QueenB community. It empowers the user to seamlessly add and remove mentors, peruse a comprehensive list of mentors, explore detailed mentor profiles, and establish direct contact with them.
 
+<div align="center">
+  <img src="https://github.com/galbaryosef/AppsFlyer-Queen-B-Web-Application/raw/main/client/src/images/welcome.png" alt="Welcome" width="300" style="margin-right: 20px">
+  <img src="https://github.com/galbaryosef/AppsFlyer-Queen-B-Web-Application/raw/main/client/src/images/mentorlist.png" alt="Mentor List" width="300" style="margin-right: 20px">
+  <img src="https://github.com/galbaryosef/AppsFlyer-Queen-B-Web-Application/raw/main/client/src/images/mentorinfo.png" alt="Mentor Info" width="190" style="margin-right: 20px">
+  <img src="https://github.com/galbaryosef/AppsFlyer-Queen-B-Web-Application/raw/main/client/src/images/register.png" alt="Register" width="150">
+</div>
 
-## Prerequisites
+## Getting Started
 
-* install VS Code: https://code.visualstudio.com/download
-* install git - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-* install Docker - in order to run a local postgres database - https://docs.docker.com/engine/install/
-* install node.js - https://phoenixnap.com/kb/install-node-js-npm-on-windows
-* install npm - package manager - Node / npm: https://nodejs.org/en/download
-*  pgAdmin (postgres client)
+To launch the client side of the project, navigate to the 'client' directory and execute the following commands:
 
-  Windows: https://www.postgresql.org/ftp/pgadmin/pgadmin4/v7.6/windows/
-
-  Mac: https://www.postgresql.org/ftp/pgadmin/pgadmin4/v7.6/macos/
-
-
-## Running locally
-
-The current configuration runs by the server serving the client code. It is also possible to run both client and server without the server serving the client.
-If you wish to tun the client you to do this by running 'npm start' from the client directory.
-
-### Get the boilerplate project
-
-1. Create your own github user, you can connect to it with user password (2 step authentication) or create an ssh key (configuration - https://github.com/settings/profile)
-   
-   a. Creating SSH key - [SSH KEY instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-   b. Install a two factor authentication app (like Authenticator) on you phone, 
-      configure it in github (https://github.com/settings/security), 
-      and use it to connect (you will be asked for a user password when you try to push code)
+```bash
+cd client
+npm start
 
 
-2. Fork this project to your repository (creates a copy)
-3. Clone it to your local computer (downloads the project)
+Features
+ * Add and Remove Mentors: Effortlessly manage mentors in the QueenB community.
+ * Mentor List Page: Browse through a comprehensive list of all mentors in the community.
+ * Mentor Profile: Access detailed information and initiate direct contact with mentors.
+ * Mentor Search: Streamline your search by filtering mentors based on specific skills.
 
-```
-$ git clone https://github.com/<you user name>/Queen-B-Bootcamp-Example.git (you can get link for the project in the website)
-```
+ ##Technologies Used
+  * Frontend: React
+  * Backend: Node.js
+  * Database: PostgreSQL
 
-### Client side 
+  ##Installation and Running locally
+  Clone the repository to your local computer:
+  git clone https://github.com/galbaryosef/AppsFlyer-Queen-B-Web-Application.git
+  cd AppsFlyer-Queen-B-Web-Application
 
-1. open a terminal and cd to the client
-```
-$ cd client
-```
-2. add dependencies:
+  server side
+  1) open a terminal and cd to src
+  cd src
+  2) add dependencies:
+  npm install
+  3) Run the server - first mode - start
+  node server.js
 
-```
-$ npm install
-```
+  client side
+  1) open a terminal and cd to the client
+  cd client
+  2)add dependencies:
+  npm install
+  3)Start the client-side application:
+  npm start
 
-3. Build the client, in the package.json file there's a command called build, this command will run it
+  ## Database Setup
 
-```
-$ npm run build 
-```
+Before running the application, make sure to set up your local PostgreSQL database. Follow these steps:
 
-4. When running in development mode in order to see the errors - debug and work locally, after running the server run: (and open the web page on 3000 port)
+1. Initiate a table with the following columns:
 
-```
-$ npm start
-```
+```sql
+CREATE TABLE mentors (
+  id SERIAL PRIMARY KEY,
+  firstname VARCHAR(255),
+  lastname VARCHAR(255),
+  email VARCHAR(255),
+  phone VARCHAR(255),
+  linkedin VARCHAR(255),
+  password VARCHAR,
+  skills TEXT[],
+  biography TEXT,
+  photo VARCHAR
+);
 
-### Server side 
-1. open another terminal in the project root
+1. Modify the db.js file in the project to match your database details. Open the file and adjust the user, host, database, password, and any other necessary details according to your local setup.
 
-3. add dependencies:
+Now, you're all set to run the application with your customized database configuration!
+Feel free to adjust the instructions or code snippets based on your preferences or specific details related to your project.
 
-```
-$ npm install
-```
+  ##Contact me
+  *Email:galb9219@gmail.com
 
-3. Run the server - first mode - start
-
-```
-$ npm run start
-```
-
-4. second mode - Development: You can run the server while detecting changes in the server side (the application will update)
-
-```
-$ npm run dev
-```
-
-More Info on connecting client-server -
-https://codedamn.com/news/reactjs/how-to-connect-react-with-node-js
-
-
-
-### Running a local Postgres database
-
-```
-docker run --name qb-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 ```

@@ -1,7 +1,23 @@
-import React, { useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 import userService from '../../Services/api';
 import './Register.css';
 
+function toBase64(file, callback) {
+  if (!file) {
+    return '';
+  }
+
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function () {
+    console.log('done converting')
+    callback(reader.result);
+  };
+  reader.onerror = function (error) {
+    console.log('Error: ', error);
+  };
+}
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,12 +27,16 @@ const Register = () => {
   const [linkedin, setLinkedin] = useState('');
   const [phone, setPhone] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [photo64, setPhoto64] = useState('');
   const [biography, setBiography] = useState('');
   const [registrationMessage, setRegistrationMessage] = useState('');
 
+  useEffect(() => {
+    toBase64(photo, setPhoto64);
+  }, [photo])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const userData = {
         firstname,
@@ -26,10 +46,10 @@ const Register = () => {
         skills: skills.split(',').map((skill) => skill.trim()),
         linkedin,
         phone,
-        photo,
+        photo: photo64,
         biography,
       };
-
+      console.log(userData);
       const response = await userService.registerMentor(userData);
       console.log('Registration successful:', response);
       setRegistrationMessage(

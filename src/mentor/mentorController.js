@@ -51,9 +51,10 @@ const addMentor = (req, res) => {
     skills,
     biography,
     password,
+    photo,
   } = req.body;
 
-  const photo = req.file ? req.file.filename : null; // Extract the filename from req.file
+  //const photo = req.file ? req.file.filename : null; // Extract the filename from req.file
 
   pool.query(
     query.checkEmailExistence,
@@ -80,6 +81,7 @@ const addMentor = (req, res) => {
               skills,
               biography,
               password,
+              photo,
             ],
             (addMentorError, results) => {
               if (addMentorError) {

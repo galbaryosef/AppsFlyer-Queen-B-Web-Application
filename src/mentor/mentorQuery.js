@@ -2,7 +2,7 @@ const getMentors = "SELECT * FROM mentors";
 const getMentorById = "SELECT * FROM mentors WHERE id=$1";
 const addMentor = `
     INSERT INTO mentors (firstname, lastname, phone, email, linkedin, skills, biography, password,photo)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8,$9)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
     RETURNING *;`;
 const checkEmailExistence = "SELECT * FROM mentors WHERE email = $1";
 const deleteMentorById = `
